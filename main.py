@@ -6,7 +6,15 @@ def inters_size(x1, y1, x2, y2, x3, y3, x4, y4):
 
 
 def union_size(x1, y1, x2, y2, x3, y3, x4, y4):
-    return (x2 - x1) * (y1 - y2) + (x4 - x3) * (y3 - y4) - inters_size(x1, y1, x2, y2, x3, y3, x4, y4) * 2
+    s_rect1 = (x2 - x1) * (y1 - y2)
+    s_rect2 = (x4 - x3) * (y3 - y4)
+    rect_inter = inters_size(x1, y1, x2, y2, x3, y3, x4, y4)
+    if rect_inter == s_rect2 and rect_inter == s_rect1:
+        return rect_inter
+    elif rect_inter == s_rect2 and rect_inter == s_rect1:
+        return s_rect1 + s_rect2 - rect_inter
+    else:
+        return s_rect1 + s_rect2 - rect_inter * 2
 
 
 def main():
